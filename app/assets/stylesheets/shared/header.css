@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  background-color: rgb(12, 123, 250);
+  width: 100vw;
+  padding: 2vh 10vw;
+}
+
+.upper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-btn {
+  font-size: 35px;
+  text-decoration: none;
+  color: white;
+}
+
+.search-form {
+  width: 25vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 100%;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 5vh;
+  border: none;
+  cursor: pointer;
+  background-color: #a5cbfa;
+  padding: 8px;
+}
+
+.search-icon {
+  width: 100%;
+}
+
+.lower-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 0;
+}
+
+.left-list {
+  display: flex;
+}
+
+.category-list {
+  text-decoration: none;
+  color: aliceblue;
+  margin-right: 2vw;
+}
+
+.bb-date-list {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.right-list {
+  display: flex;
+}
+
+.user-nickname {
+  text-decoration: none;
+  color: aliceblue;
+  margin-right: 2vw;
+}
+
+.logout {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.login {
+  text-decoration: none;
+  color: aliceblue;
+  margin-right: 2vw;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: aliceblue;
+}
+
