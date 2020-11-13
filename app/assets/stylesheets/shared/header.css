@@ -55,6 +55,7 @@
 
 .left-list {
   display: flex;
+  justify-content: space-between;
 }
 
 .category-list {
