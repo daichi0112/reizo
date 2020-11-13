@@ -2,8 +2,6 @@
   background-color: rgb(45, 48, 48);
   width: 100vw;
   padding: 2vh 10vw;
-  display: flex;
-  flex-direction: column;
 }
 
 .upper-footer {
@@ -28,12 +26,15 @@
   display: flex;
 }
 
+.footer-list li {
+  list-style: none;
+}
+
 .footer-link {
   margin-right: 2vw;
   font-size: 12px;
   text-decoration: none;
   color: rgb(204, 198, 198);
-  list-style: none;
 }
 
 footer p {
