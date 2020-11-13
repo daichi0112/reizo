@@ -3,7 +3,7 @@
 }
 
 .top-page-header {
-  background-color: rgb(12, 123, 250);
+  background-color: rgb(247, 171, 9);
   width: 100vw;
   padding: 2vh 10vw;
 }
@@ -37,7 +37,7 @@
   width: 5vh;
   border: none;
   cursor: pointer;
-  background-color: #a5cbfa;
+  background-color: #fddc4b;
   padding: 8px;
 }
 
@@ -58,13 +58,13 @@
 
 .category-list {
   text-decoration: none;
-  color: aliceblue;
+  color: white;
   margin-right: 2vw;
 }
 
 .bb-date-list {
   text-decoration: none;
-  color: aliceblue;
+  color: white;
 }
 
 .right-list {
@@ -73,7 +73,7 @@
 
 .user-nickname {
   text-decoration: none;
-  color: aliceblue;
+  color: white;
   margin-right: 2vw;
 }
 

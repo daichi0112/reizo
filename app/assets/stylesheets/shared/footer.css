@@ -1,0 +1,40 @@
+.top-page-footer {
+  background-color: rgb(45, 48, 48);
+  width: 100vw;
+  padding: 2vh 10vw;
+}
+
+.upper-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+.footer-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.lower-footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+.footer-list {
+  display: flex;
+}
+
+.footer-link {
+  margin-right: 2vw;
+  font-size: 12px;
+  text-decoration: none;
+  color: rgb(204, 198, 198);
+}
+
+footer p {
+  text-align: center;
+  color: rgb(204, 198, 198);
+  font-size: 12px;
+}
