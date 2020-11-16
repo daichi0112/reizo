@@ -1,0 +1,33 @@
+<div class='new-contents'>
+  <div class='new-header'>
+      <%= link_to 'Reizo', root_path, class:'new-top-btn' %>
+  </div>
+  <div class='new-main'>
+    <h1 class='new-title'>
+      食材登録
+    </h1>
+    <div class='new-form'>
+      <%= form_with(model: @food, local: true) do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+        <%= f.text_area :name, class:'food-text', placeholder: '食材名(必須)' %>
+        <%= f.text_area :number, class:'num-text', placeholder: '数量(必須)' %>
+        <%= f.collection_select(:unit_id, Unit.all, :id, :name, {}, {class:"select-box"}) %>
+        <%= raw sprintf(
+                    f.date_select(
+                      :bb_date,
+                      class:'select-box',
+                      id:"bb-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: Time.now.year,
+                      end_year: (Time.now.year + 10),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+        <%= f.submit '＋食材'%>
+      <% end %>
+    </div>
+  </div>
+</div>
