@@ -7,10 +7,11 @@ class Food < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :num
     validates :unit
     validates :bb_date
     validates :category
+
+    validates :number, inclusion: { in: 0..10_000, message: 'Out of setting range' }
   end
 
   with_options numericality: { other_than: 1, message: 'Select' } do
