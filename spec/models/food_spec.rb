@@ -23,9 +23,9 @@ RSpec.describe Food, type: :model do
     end
 
     it 'numberが10000より上の場合、保存できないこと' do
-      @food.number = 10001
+      @food.number = 10_001
       @food.valid?
-      expect(@food.errors.full_messages).to include("Number Out of setting range")
+      expect(@food.errors.full_messages).to include('Number Out of setting range')
     end
 
     it 'unit_idが空では保存できないこと' do
@@ -37,7 +37,7 @@ RSpec.describe Food, type: :model do
     it 'unit_idが1の場合、保存できないこと' do
       @food.unit_id = 1
       @food.valid?
-      expect(@food.errors.full_messages).to include("Unit Select")
+      expect(@food.errors.full_messages).to include('Unit Select')
     end
 
     it 'bb_dateが空では保存できないこと' do
@@ -55,13 +55,13 @@ RSpec.describe Food, type: :model do
     it 'category_idが1の場合、保存できないこと' do
       @food.category_id = 1
       @food.valid?
-      expect(@food.errors.full_messages).to include("Category Select")
+      expect(@food.errors.full_messages).to include('Category Select')
     end
 
     it 'userが紐づいていない場合、保存できないこと' do
       @food.user = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("User must exist")
+      expect(@food.errors.full_messages).to include('User must exist')
     end
   end
 end

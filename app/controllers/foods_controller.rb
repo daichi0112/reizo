@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
   def new
     @food = Food.new
   end
-  
+
   def create
     @food = Food.new(food_params)
     if @food.save
@@ -18,6 +18,7 @@ class FoodsController < ApplicationController
   end
 
   private
+
   def food_params
     params.require(:food).permit(:name, :number, :unit_id, :bb_date, :category_id).merge(user_id: current_user.id)
   end
