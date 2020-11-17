@@ -1,6 +1,52 @@
 <%= render "shared/header" %>
-<div class='main'>
-  メイン
+
+<div class="main">
+  <div class='contents'>
+    <h1 class="title">
+      食材一覧
+    </h1>
+    <ul class="foods-list">
+      <% @foods.each do |food| %>
+        <% if current_user.id == food.user.id %>
+          <%= link_to '#', class:'food-link' do %>
+            <li class='food'>
+              <div class='name'>
+                <%= food.name %>
+              </div>
+              <div class='number'>
+                <%= food.number %>
+                <%= food.unit.name %>
+              </div>
+              <div class='bb-date'>
+                <%= food.bb_date %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%# ダミーテキスト %>
+      <% unless current_user.foods.present? %>
+        <li class='dummy-text'>
+          <div class='name'>
+            例) じゃがいも
+          </div>
+          <div class='number'>
+            5個
+          </div>
+          <div class='bb-date'>
+            2020-01-01
+          </div>
+        </li>
+      <% end %>
+      <%# /ダミーテキスト %>
+
+    </ul>
+  </div>
+</div>
+
+<div class='new-btn'>
+  <%= link_to '＋食材', new_food_path, class:'new-food-btn'%>
 </div>
 
 <%= render "shared/footer" %>

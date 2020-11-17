@@ -1,3 +1,73 @@
-// Place all the styles related to the foods controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main {
+  padding: 20px;
+}
+
+.contents {
+  // 後でチェック
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.title {
+  width: 30%;
+  font-size: 3vh;
+  text-align: center;
+  margin: 5vh 0;
+  color: rgb(41, 38, 38);
+}
+.foods-list {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-list li {
+  list-style: none;
+}
+
+.food-link {
+  text-decoration: none;
+  color: rgb(41, 38, 38);
+}
+
+.food {
+  display: flex;
+  border-bottom: 1px solid chocolate;
+  margin: 7px 0 7px;
+}
+.name {
+  width: 15vw;
+}
+
+.number {
+  width: 10vw;
+}
+
+.dummy-text {
+  display: flex;
+  border-bottom: 1px solid rgba(210, 105, 30, 0.534);
+  margin: 7px 0 7px;
+  color: rgb(161, 158, 158);
+}
+
+.new-btn {
+  width: 7vw;
+  height: 7vh;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background-color: #fdd62a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-food-btn {
+  text-decoration: none;
+  color: white;
+}
+

@@ -2,6 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @foods = Food.includes(:user).order("bb_date")
   end
 
   def new
