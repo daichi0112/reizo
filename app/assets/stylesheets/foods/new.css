@@ -1,9 +1,9 @@
 .new-contents {
   /* 仮置き */
-  /* background-image: url('../image_foods.png');
+  background-image: url('../image_foods.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center; */
+  background-position: top center;
   height: 100%;
   width: 100%;
 }
