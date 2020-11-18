@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
   before_action :move_to_root_path, only: :edit
 
   def index
-    @foods = Food.includes(:user).order("bb_date")
+    @foods = Food.includes(:user).order('bb_date')
   end
 
   def new
