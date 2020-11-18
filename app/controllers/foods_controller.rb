@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :set_food, only: [:edit, :update]
+  before_action :set_food, only: [:edit, :update, :destroy]
+  before_action :move_to_root_path, only: :edit
 
   def index
     @foods = Food.includes(:user).order("bb_date")
@@ -30,6 +31,11 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food.destroy
+    redirect_to root_path
+  end
+
   private
 
   def food_params
@@ -38,5 +44,10 @@ class FoodsController < ApplicationController
 
   def set_food
     @food = Food.find(params[:id])
+  end
+
+  def move_to_root_path
+    @food = Food.find(params[:id])
+    redirect_to root_path unless current_user.id == @food.user.id
   end
 end

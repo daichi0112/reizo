@@ -65,6 +65,7 @@
           </div>
           <div class='submit-form'>
             <%= f.submit '変更する', class:'submit-btn'%>
+            <%= link_to '削除する', food_path, method: :delete, class:'delete-btn' %>
             <%= link_to '戻る', root_path, class: 'back-btn' %>
           </div>
         <% end %>
