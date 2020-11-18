@@ -1,0 +1,76 @@
+<div class='edit-contents'>
+  <div class='edit-sub-contents'>
+    <div class='edit-header'>
+        <%= link_to 'Reizo', root_path, class:'edit-top-btn' %>
+    </div>
+    <div class='edit-main'>
+      <h1 class='edit-title'>
+        食材編集ページ
+      </h1>
+      <div class='edit-form'>
+        <%= form_with(model: @food, local: true) do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+          <div class='form-group'>
+            <div class='text-title'>
+              食材名
+              <span class='required'>必須</span>
+            </div>
+            <%= f.text_area :name, class:'new-text', placeholder: '食材名' %>
+          </div>
+
+          <div class='form-group'>
+            <div class='text-title'>
+              数量
+              <span class='required'>必須</span>
+            </div>
+              <%= f.text_area :number, class:'new-text', placeholder: '半角数字' %>
+          </div>
+
+          <div class='form-group'>
+            <div class='text-title'>
+              単位
+              <span class='required'>必須</span>
+            </div>
+            <%= f.collection_select(:unit_id, Unit.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
+
+          <div class='form-group'>
+            <div class='text-title'>
+              カテゴリー
+              <span class='required'>必須</span>
+            </div>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
+
+          <div class='form-group'>
+            <div class='text-title'>
+              賞味期限
+              <span class='required'>必須</span>
+            </div>
+            <div class='bb-date-form'>
+              <%= raw sprintf(
+                          f.date_select(
+                            :bb_date,
+                            class:'select-bb-date',
+                            id:"bb-date",
+                            use_month_numbers: true,
+                            prompt:'--',
+                            start_year: Time.now.year,
+                            end_year: (Time.now.year + 10),
+                            date_separator: '%s'),
+                          "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+            </div>
+          </div>
+          <div class='submit-form'>
+            <%= f.submit '変更する', class:'submit-btn'%>
+            <%= link_to '戻る', root_path, class: 'back-btn' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

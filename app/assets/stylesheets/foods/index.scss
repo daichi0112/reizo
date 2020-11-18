@@ -35,10 +35,14 @@
 }
 
 .food {
-  display: flex;
-  border-bottom: 1px solid chocolate;
+  border-bottom: 1px solid #f58e44;
   margin: 7px 0 7px;
 }
+
+.food-link {
+  display: flex;
+}
+
 .name {
   width: 15vw;
 }
@@ -70,4 +74,3 @@
   text-decoration: none;
   color: white;
 }
-
