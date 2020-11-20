@@ -9,15 +9,13 @@
       </h1>
       <div class='new-form'>
         <%= form_with(model: @food, local: true) do |f| %>
-
-        <%= render 'shared/error_messages', model: f.object %>
-
           <div class='form-group'>
             <div class='text-title'>
               食材名
               <span class='required'>必須</span>
             </div>
             <%= f.text_area :name, class:'new-text', placeholder: '食材名' %>
+            <%= render 'shared/error_messages', model: f.object, attribute: :name %>
           </div>
 
           <div class='form-group'>
@@ -26,6 +24,7 @@
               <span class='required'>必須</span>
             </div>
               <%= f.text_area :number, class:'new-text', placeholder: '半角数字' %>
+              <%= render 'shared/error_messages', model: f.object, attribute: :number %>
           </div>
 
           <div class='form-group'>
@@ -34,6 +33,7 @@
               <span class='required'>必須</span>
             </div>
             <%= f.collection_select(:unit_id, Unit.all, :id, :name, {}, {class:"select-box"}) %>
+            <%= render 'shared/error_messages', model: f.object, attribute: :unit_id %>
           </div>
 
           <div class='form-group'>
@@ -42,6 +42,7 @@
               <span class='required'>必須</span>
             </div>
             <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+            <%= render 'shared/error_messages', model: f.object, attribute: :category_id %>
           </div>
 
           <div class='form-group'>
@@ -51,6 +52,7 @@
             </div>
             <div class='bb-date-form'>
               <%= f.date_field :bb_date, class: 'select-bb-date' %>
+              <%= render 'shared/error_messages', model: f.object, attribute: :bb_date %>
             </div>
           </div>
           <div class='submit-form'>
