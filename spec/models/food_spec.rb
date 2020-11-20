@@ -22,6 +22,12 @@ RSpec.describe Food, type: :model do
       expect(@food.errors.full_messages).to include("Number can't be blank")
     end
 
+    it 'numberが半角数字でない場合、保存できないこと' do
+      @food.number = '１２３４'
+      @food.valid?
+      expect(@food.errors.full_messages).to include("Number Half-width number")
+    end
+
     it 'numberが10000より上の場合、保存できないこと' do
       @food.number = 10_001
       @food.valid?
