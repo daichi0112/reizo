@@ -2,12 +2,14 @@
   <div class='header-contents'>
     <div class='upper-header'>
       <%= link_to 'Reizo', root_path, class:"top-btn" %>
-      <form class="search-form" action="#">
-        <input class='input-box' placeholder='食材を探す'>
+      <%= search_form_for @search, url: search_foods_path, class: 'search-form' do |f| %>
+        <%= f.text_field :name_cont, placeholder: "食材を探す", class: 'input-box'%>
+        <%= f.collection_select(:category_id_eq, Category.where.not(id: 1), :id, :name, include_blank: 'カテゴリー指定なし', class:"search-category") %>
+        <%= f.date_field :bb_date_eq, class: 'search-bb-date' %>
         <button class="search-button">
           <%= image_tag "search.png", class:"search-icon" %>
         </button>
-      </form>
+      <% end %>
     </div>
     <div class='lower-header'>
       <ul class='left-list'>

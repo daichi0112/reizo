@@ -2,6 +2,8 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_food, only: [:edit, :update, :destroy]
   before_action :move_to_root_path, only: :edit
+  before_action :set_search, only: [:index, :search]
+
 
   def index
     @foods = Food.includes(:user).order('bb_date')
@@ -36,6 +38,12 @@ class FoodsController < ApplicationController
     redirect_to root_path
   end
 
+  # def search
+  #   @foods = Food.search(params[:keyword])
+  # end
+  def search
+  end
+
   private
 
   def food_params
@@ -50,4 +58,10 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     redirect_to root_path unless current_user.id == @food.user.id
   end
+
+  def set_search
+    @search = Food.ransack(params[:q])
+    @search_foods = @search.result(distinct: true).includes(:user).order('bb_date')
+  end
+
 end

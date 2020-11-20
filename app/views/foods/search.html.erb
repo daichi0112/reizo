@@ -1,0 +1,48 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <div class='contents'>
+    <h1 class="title">
+      検索結果
+    </h1>
+      <ul class="foods-list">
+        <% @search_foods.each do |food| %>
+          <% if user_signed_in? && current_user.id == food.user.id %>
+              <li class='food'>
+                <%= link_to edit_food_path(food.id), class:'food-link' do %>
+                  <div class='name'>
+                    <%= food.name %>
+                  </div>
+                  <div class='number'>
+                    <%= food.number %>
+                    <%= food.unit.name %>
+                  </div>
+                  <div class='bb-date'>
+                    賞味期限
+                    <%= food.bb_date %>
+                  </div>
+                <% end %>
+              </li>
+          <% end %>
+        <% end %>
+      </ul>
+
+      <%# 検索結果なしの場合 %>
+      <% unless @search_foods.present? %>
+          <p>一致する食材がありません</p>
+      <% end %>
+      <%# /検索結果なしの場合 %>
+
+    <div class='search-back'>
+      <%= link_to '戻る', root_path, class: 'search-back-btn' %>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in?%>
+  <div class='new-btn'>
+    <%= link_to '＋食材', new_food_path, class:'new-food-btn' %>
+  </div>
+<% end %>
+
+<%= render "shared/footer" %>
