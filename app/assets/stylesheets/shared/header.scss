@@ -20,75 +20,14 @@
 }
 
 .top-btn {
-  font-size: 35px;
-  text-decoration: none;
-  color: white;
-}
-
-.search-form {
-  /* 後でチェック */
-  width: 50vw;
-  height: 5vh;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.search-form>.input-box {
-  width: 100%;
-  height: 5vh;
-  padding-left: 10px;
-}
-
-.search-form>.search-category {
-  width: 100%;
-  height: 5vh;
-}
-
-.search-form>.search-bb-date {
-  width: 100%;
-  height: 5vh;
-}
-
-.search-button {
-  border: none;
-  background-color: #eea114;
-  padding: 8px;
-  width: 80px;
-}
-
-.search-icon {
-  width: 100%;
-}
-
-.lower-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1vh 0;
-}
-
-.lower-header li {
-  list-style: none;
-}
-
-.left-list {
-  display: flex;
-}
-
-.category-list {
-  text-decoration: none;
-  color: white;
-  margin-right: 2vw;
-}
-
-.bb-date-list {
+  font-size: 45px;
   text-decoration: none;
   color: white;
 }
 
 .right-list {
   display: flex;
+  list-style: none;
 }
 
 .user-nickname {
@@ -114,9 +53,55 @@
 }
 
 .app-description {
-  margin-top: 120px;
+  margin-top: 50px;
   text-align: center;
   text-shadow: 0 0 0.2em #292928;
-  font-size: 30px;
+  font-size: 40px;
   color: white;
+}
+
+.sub-description {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.foods-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  width: 80vw;
+}
+
+.search-form {
+  width: 80%;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 80%;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+.search-form>.search-category {
+  width: 100%;
+  height: 5vh;
+}
+
+.search-form>.search-bb-date {
+  width: 60%;
+  height: 5vh;
+}
+
+.search-button {
+  border: none;
+  background-color: #eea114;
+  padding: 8px;
+  width: 60px;
+}
+
+.search-icon {
+  width: 100%;
 }

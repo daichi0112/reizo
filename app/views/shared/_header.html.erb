@@ -2,20 +2,6 @@
   <div class='header-contents'>
     <div class='upper-header'>
       <%= link_to 'Reizo', root_path, class:"top-btn" %>
-      <%= search_form_for @search, url: search_foods_path, class: 'search-form' do |f| %>
-        <%= f.text_field :name_cont, placeholder: "食材を探す", class: 'input-box'%>
-        <%= f.collection_select(:category_id_eq, Category.where.not(id: 1), :id, :name, include_blank: 'カテゴリー指定なし', class:"search-category") %>
-        <%= f.date_field :bb_date_eq, class: 'search-bb-date' %>
-        <button class="search-button">
-          <%= image_tag "search.png", class:"search-icon" %>
-        </button>
-      <% end %>
-    </div>
-    <div class='lower-header'>
-      <ul class='left-list'>
-        <li><%= link_to 'カテゴリー', '#', class:'category-list' %></li>
-        <li><%= link_to '賞味期限', '#', class:'bb-date-list' %></li>
-      </ul>
       <ul class='right-list'>
         <% if user_signed_in? %>
           <li><%= link_to current_user.nickname, '#', class:'user-nickname' %></li>
@@ -27,7 +13,21 @@
       </ul>
     </div>
     <div class='app-description'>
-      誰でも簡単、食材管理アプリ
+      誰でも簡単、食材管理アプリ<br />
+      <p class='sub-description'>
+        Reizoは冷蔵庫のお悩みを解決する<br />
+        食材管理アプリです。
+      </p>
+    </div>
+    <div class='foods-search'>
+      <%= search_form_for @search, url: search_foods_path, class: 'search-form' do |f| %>
+        <%= f.text_field :name_cont, placeholder: "食材を探す", class: 'input-box'%>
+        <%= f.collection_select(:category_id_eq, Category.where.not(id: 1), :id, :name, include_blank: 'カテゴリー指定なし', class:"search-category") %>
+        <%= f.date_field :bb_date_gteq, class: 'search-bb-date' %>
+        <button class="search-button">
+          <%= image_tag "search.png", class:"search-icon" %>
+        </button>
+      <% end %>
     </div>
   </div>
 </header>
