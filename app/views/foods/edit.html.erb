@@ -1,13 +1,13 @@
 <div class='edit-contents'>
-  <div class='edit-sub-contents'>
-    <div class='edit-header'>
-        <%= link_to 'Reizo', root_path, class:'edit-top-btn' %>
+  <div class='new-sub-contents'>
+    <div class='new-header'>
+        <%= link_to 'Reizo', root_path, class:'new-top-btn' %>
     </div>
-    <div class='edit-main'>
+    <div class='new-main'>
       <h1 class='edit-title'>
         食材編集ページ
       </h1>
-      <div class='edit-form'>
+      <div class='new-form'>
         <%= form_with(model: @food, local: true) do |f| %>
 
         <%= render 'shared/error_messages', model: f.object %>
@@ -50,17 +50,7 @@
               <span class='required'>必須</span>
             </div>
             <div class='bb-date-form'>
-              <%= raw sprintf(
-                          f.date_select(
-                            :bb_date,
-                            class:'select-bb-date',
-                            id:"bb-date",
-                            use_month_numbers: true,
-                            prompt:'--',
-                            start_year: Time.now.year,
-                            end_year: (Time.now.year + 10),
-                            date_separator: '%s'),
-                          "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+              <%= f.date_field :bb_date, class: 'select-bb-date' %>
             </div>
           </div>
           <div class='submit-form'>

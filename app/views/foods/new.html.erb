@@ -50,17 +50,7 @@
               <span class='required'>必須</span>
             </div>
             <div class='bb-date-form'>
-              <%= raw sprintf(
-                          f.date_select(
-                            :bb_date,
-                            class:'select-bb-date',
-                            id:"bb-date",
-                            use_month_numbers: true,
-                            prompt:'--',
-                            start_year: Time.now.year,
-                            end_year: (Time.now.year + 10),
-                            date_separator: '%s'),
-                          "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+              <%= f.date_field :bb_date, class: 'select-bb-date' %>
             </div>
           </div>
           <div class='submit-form'>
