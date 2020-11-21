@@ -1,0 +1,42 @@
+// new.scssを引用
+// 以下registration/new.html.erbの変更箇所
+
+.sessions-contents {
+  background-image: image-url('image_foods5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 680px;
+  width: 100vw;
+}
+
+.login-flash-message {
+  margin-top: 20px;
+  text-align: center;
+  color: red;
+}
+
+.sessions-form-group {
+  margin: 40px 0 30px;
+}
+
+.registrations-new-btn {
+  width: 120px;
+  text-decoration: none;
+  background-color: rgb(95, 95, 95);
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  margin: 20px 0 15px;
+}
+
+.sessions-back-btn {
+  width: 120px;
+  text-decoration: none;
+  background-color: rgb(95, 95, 95);
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+}
