@@ -38,6 +38,7 @@ class FoodsController < ApplicationController
     redirect_to root_path
   end
 
+  # 検索機能
   def search
   end
 
