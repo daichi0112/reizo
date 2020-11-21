@@ -14,7 +14,7 @@
               食材名
               <span class='required'>必須</span>
             </div>
-            <%= f.text_area :name, class:'new-text', placeholder: '食材名', autofocus: true %>
+            <%= f.text_area :name, class:'new-text', placeholder: '食材名' %>
             <%= render 'shared/error_messages', model: f.object, attribute: :name %>
           </div>
 
@@ -23,7 +23,7 @@
               数量
               <span class='required'>必須</span>
             </div>
-              <%= f.text_area :number, class:'new-text', placeholder: '半角数字' %>
+              <%= f.text_area :number, class:'new-text', placeholder: '半角数字', autofocus: true %>
               <%= render 'shared/error_messages', model: f.object, attribute: :number %>
           </div>
 
