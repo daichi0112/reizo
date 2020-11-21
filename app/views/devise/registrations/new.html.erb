@@ -1,4 +1,4 @@
-<div class='registraion-contents'>
+<div class='registrations-contents'>
   <div class='new-sub-contents'>
     <div class='new-header'>
         <%= link_to 'Reizo', root_path, class:'new-top-btn' %>
@@ -14,7 +14,7 @@
               ニックネーム
               <span class='required'>必須</span>
             </div>
-            <%= f.text_area :nickname, class:'new-text', placeholder: '例) Reizo太郎' %>
+            <%= f.text_area :nickname, class:'new-text', placeholder: '例) Reizo太郎', autofocus: true %>
             <%= render 'shared/error_messages', model: f.object, attribute: :nickname %>
           </div>
 

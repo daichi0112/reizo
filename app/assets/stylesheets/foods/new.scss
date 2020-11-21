@@ -3,7 +3,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
-  height: 100%;
   width: 100vw;
 }
 
@@ -13,6 +12,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .new-header {
@@ -27,7 +28,7 @@
 
 .new-main {
   background-color: rgba(253, 250, 247, 0.719);
-  width: 50vw;
+  width: 45vw;
   margin: 5vh 0;
   padding: 10px;
   height: 100%;
