@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     it 'emailが空では登録できないこと' do
       @user.email = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("メールアドレスを入力してください")
+      expect(@user.errors.full_messages).to include("Eメールを入力してください")
     end
 
     it '重複したemailが存在する場合、登録できないこと' do
@@ -27,13 +27,13 @@ RSpec.describe User, type: :model do
       another_user = FactoryBot.build(:user)
       another_user.email = @user.email
       another_user.valid?
-      expect(another_user.errors.full_messages).to include('メールアドレスはすでに存在します')
+      expect(another_user.errors.full_messages).to include('Eメールはすでに存在します')
     end
 
     it 'emailに@が存在しない場合、登録できないこと' do
       @user.email = '1234abcd.com'
       @user.valid?
-      expect(@user.errors.full_messages).to include('メールアドレスは不正な値です')
+      expect(@user.errors.full_messages).to include('Eメールは不正な値です')
     end
 
     it 'passwordが空では登録できないこと' do
@@ -65,13 +65,13 @@ RSpec.describe User, type: :model do
     it 'password_confirmationが空では、登録できないこと' do
       @user.password_confirmation = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("確認用パスワードとパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
     end
 
     it 'passwordとpassword_confirmationが不一致では、登録できないこと' do
       @user.password_confirmation = '9876abc'
       @user.valid?
-      expect(@user.errors.full_messages).to include("確認用パスワードとパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
     end
   end
 end

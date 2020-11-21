@@ -31,7 +31,7 @@ RSpec.describe Food, type: :model do
     it 'numberが10000より上の場合、保存できないこと' do
       @food.number = 10_001
       @food.valid?
-      expect(@food.errors.full_messages).to include('数字は0〜10,000の範囲内で入力してください')
+      expect(@food.errors.full_messages).to include('数字は0〜10,000以内で入力してください')
     end
 
     it 'unit_idが空では保存できないこと' do
