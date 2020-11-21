@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      food: 食材
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+      food:
+        name: 食材名
+        number: 数字
+        unit_id: 単位
+        category_id: カテゴリー
+        bb_date: 賞味期限
