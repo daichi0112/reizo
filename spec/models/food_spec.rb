@@ -13,61 +13,61 @@ RSpec.describe Food, type: :model do
     it 'nameが空では保存できないこと' do
       @food.name = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("Name can't be blank")
+      expect(@food.errors.full_messages).to include("食材名を入力してください")
     end
 
     it 'numberが空では保存できないこと' do
       @food.number = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("Number can't be blank")
+      expect(@food.errors.full_messages).to include("数字を入力してください")
     end
 
     it 'numberが半角数字でない場合、保存できないこと' do
       @food.number = '１２３４'
       @food.valid?
-      expect(@food.errors.full_messages).to include("Number Half-width number")
+      expect(@food.errors.full_messages).to include("数字は半角数字で入力してください")
     end
 
     it 'numberが10000より上の場合、保存できないこと' do
       @food.number = 10_001
       @food.valid?
-      expect(@food.errors.full_messages).to include('Number Out of setting range')
+      expect(@food.errors.full_messages).to include('数字は0〜10,000の範囲内で入力してください')
     end
 
     it 'unit_idが空では保存できないこと' do
       @food.unit_id = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("Unit can't be blank")
+      expect(@food.errors.full_messages).to include("単位を入力してください")
     end
 
     it 'unit_idが1の場合、保存できないこと' do
       @food.unit_id = 1
       @food.valid?
-      expect(@food.errors.full_messages).to include('Unit Select')
+      expect(@food.errors.full_messages).to include('単位を選択してください')
     end
 
     it 'bb_dateが空では保存できないこと' do
       @food.bb_date = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("Bb date can't be blank")
+      expect(@food.errors.full_messages).to include("賞味期限を入力してください")
     end
 
     it 'category_idが空では保存できないこと' do
       @food.category_id = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("Category can't be blank")
+      expect(@food.errors.full_messages).to include("カテゴリーを入力してください")
     end
 
     it 'category_idが1の場合、保存できないこと' do
       @food.category_id = 1
       @food.valid?
-      expect(@food.errors.full_messages).to include('Category Select')
+      expect(@food.errors.full_messages).to include('カテゴリーを選択してください')
     end
 
     it 'userが紐づいていない場合、保存できないこと' do
       @food.user = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include('User must exist')
+      expect(@food.errors.full_messages).to include('Userを入力してください')
     end
   end
 end
