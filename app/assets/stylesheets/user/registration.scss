@@ -1,0 +1,11 @@
+// new.scssを引用
+// 以下registration/new.html.erbの変更箇所
+
+.registraion-contents {
+  background-image: image-url('image_foods4.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 100%;
+  width: 100vw;
+}

@@ -32,7 +32,7 @@
               単位
               <span class='required'>必須</span>
             </div>
-            <%= f.collection_select(:unit_id, Unit.all, :id, :name, {}, {class:"select-box"}) %>
+            <%= f.collection_select(:unit_id, Unit.all, :id, :name, {}, {class:"select-unit"}) %>
             <%= render 'shared/error_messages', model: f.object, attribute: :unit_id %>
           </div>
 

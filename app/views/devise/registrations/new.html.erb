@@ -1,32 +1,59 @@
-<%= link_to 'トップページ', root_path %>
-<h2>Sign up</h2>
+<div class='registraion-contents'>
+  <div class='new-sub-contents'>
+    <div class='new-header'>
+        <%= link_to 'Reizo', root_path, class:'new-top-btn' %>
+    </div>
+    <div class='new-main'>
+      <h1 class='new-title'>
+        会員登録
+      </h1>
+      <div class='new-form'>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+          <div class='form-group'>
+            <div class='text-title'>
+              ニックネーム
+              <span class='required'>必須</span>
+            </div>
+            <%= f.text_area :nickname, class:'new-text', placeholder: '例) Reizo太郎' %>
+            <%= render 'shared/error_messages', model: f.object, attribute: :nickname %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <div class='form-group'>
+            <div class='text-title'>
+              メールアドレス
+              <span class='required'>必須</span>
+            </div>
+              <%= f.email_field :email, class:'new-text', placeholder: '例) reizo@reizo.com' %>
+              <%= render 'shared/error_messages', model: f.object, attribute: :email %>
+          </div>
 
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, placeholder:"例) Reizo太郎", autofocus: true %>
+          <div class='form-group'>
+            <div class='text-title'>
+              パスワード
+              <span class='required'>必須</span>
+            </div>
+            <%= f.password_field :password, class:'new-text', placeholder: '半角英数字で入力' %>
+            <%= render 'shared/error_messages', model: f.object, attribute: :password %>
+          </div>
+
+
+          <div class='form-group'>
+            <div class='text-title'>
+              確認用パスワード
+              <span class='required'>必須</span>
+            </div>
+            <%= f.password_field :password_confirmation, class:'new-text', placeholder: '同じパスワードを入力' %>
+            <%= render 'shared/error_messages', model: f.object, attribute: :password_confirmation %>
+          </div>
+
+          <div class='submit-form'>
+            <%= f.submit '登録する', class:'submit-btn'%>
+            <%= link_to '戻る', root_path, class: 'back-btn' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, placeholder:"携帯・PCどちらでも可", autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, placeholder:"6文字以上の半角英数字", autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, placeholder:"同じパスワードを入力", autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= render "shared/footer" %>

@@ -1,5 +1,4 @@
 .new-contents {
-  /* 仮置き */
   background-image: image-url('image_foods.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,10 +46,15 @@
 
 .new-form {
   padding: 15px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
 }
 
 .text-title {
@@ -64,24 +68,32 @@
   font-size: 12px;
 }
 
-.select-box {
-  height: 32px;
-  padding: 5px 2px;
-}
-
-.form-group {
-  margin-bottom: 30px;
-}
-
 .new-text {
+  width: 210px;
   height: 32px;
   padding: 5px;
   resize: none;
   font-size: 100%;
 }
 
+.select-unit {
+  height: 32px;
+  padding: 5px 2px;
+}
+
+.select-box {
+  height: 32px;
+  padding: 5px 2px;
+  width: 210px;
+}
+
 .bb-date-form {
   height: 32px;
+  width: 210px;
+}
+
+.select-bb-date {
+  width: 100%;
 }
 
 .submit-form {
