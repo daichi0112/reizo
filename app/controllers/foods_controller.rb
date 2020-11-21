@@ -38,9 +38,6 @@ class FoodsController < ApplicationController
     redirect_to root_path
   end
 
-  # def search
-  #   @foods = Food.search(params[:keyword])
-  # end
   def search
   end
 
