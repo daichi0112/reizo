@@ -11,6 +11,7 @@
   align-items: center;
   margin-bottom: 2vh;
 }
+
 .footer-btn {
   color: white;
   text-decoration: none;
@@ -42,4 +43,40 @@ footer p {
   text-align: center;
   color: rgb(204, 198, 198);
   font-size: 12px;
+}
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .top-page-footer {
+    height: 200px;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .top-page-footer {
+    padding: 2vh 2vw;
+    height: 110px;
+  }
+
+  .upper-footer {
+    margin-bottom: 1vh;
+  }
+
+  .footer-btn {
+    font-size: 15px;
+  }
+
+  .lower-footer {
+    margin-bottom: 1vh;
+  }
+
+  .footer-link {
+    margin-right: 2vw;
+    font-size: 1px;
+  }
+
+  footer p {
+    font-size: 6px;
+  }
 }

@@ -83,18 +83,18 @@
 
 .search-form>.input-box {
   width: 80%;
-  height: 5vh;
+  height: 100%;
   padding-left: 10px;
 }
 
 .search-form>.search-category {
   width: 100%;
-  height: 5vh;
+  height: 100%;
 }
 
 .search-form>.search-bb-date {
   width: 60%;
-  height: 5vh;
+  height: 100%;
 }
 
 .search-button {
@@ -107,3 +107,68 @@
 .search-icon {
   width: 100%;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .search-button {
+    width: 100px;
+  }
+
+  .search-icon {
+    width: 80%;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .top-page-header {
+    height: 200px;
+  }
+
+  .header-contents {
+    padding: 2vh 6vw;
+  }
+
+  .top-btn {
+    font-size: 20px;
+  }
+
+  .right-list {
+    font-size: 11px;
+  }
+
+  .app-description {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .sub-description {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  .foods-search {
+    margin-top: 15px;
+    width: 330px;
+  }
+
+  .search-form {
+    width: 100%;
+    height: 20px;
+    font-size: 3px;
+  }
+
+  .search-form>.input-box {
+    padding-left: 3px;
+  }
+
+  .search-form>.search-bb-date {
+    width: 100%;
+  }
+
+  .search-button {
+    padding: 3px;
+    width: 45px;
+  }
+}
+
