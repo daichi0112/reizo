@@ -48,9 +48,12 @@
 </div>
 
 <% if user_signed_in?%>
-  <div class='new-btn'>
-    <%= link_to '＋食材', new_food_path, class:'new-food-btn' %>
-  </div>
+  <%= link_to new_food_path, class:'new-food-btn' do %>
+    <div class='new-btn'>
+      <span class='new-btn-text'>食材登録</span>
+      <%= image_tag 'food-icon.png', class: "new-btn-icon"%>
+    </div>
+  <% end %>
 <% end %>
 
 <%= render "shared/footer" %>
