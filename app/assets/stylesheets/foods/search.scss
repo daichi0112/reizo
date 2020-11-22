@@ -10,3 +10,17 @@
   color: rgb(59, 56, 56);
   text-align: center;
 }
+
+/* タブレット表示時 */
+// index.scssを引用
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .search-back {
+    margin-top: 10px;
+  }
+  
+  .search-back-btn {
+    font-size: 5px;
+  }
+}
