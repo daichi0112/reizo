@@ -8,3 +8,17 @@
   background-position: top center;
   width: 100vw;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .registrations-contents {
+    height: 1180px;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .registrations-contents {
+    height: 702px;
+  }
+}
