@@ -150,7 +150,7 @@
 
   .foods-search {
     margin-top: 40px;
-    width: 320px;
+    width: 325px;
   }
 
   .search-form {
@@ -166,16 +166,18 @@
   }
 
   .search-form>.search-category {
-    width: 20%;
+    width: 28%;
+    background-color: whitesmoke;
   }
 
   .search-form>.search-bb-date {
-    width: 35%;
+    width: 37%;
+    padding-left: 1px;
   }
 
   .search-button {
     padding: 2px;
-    width: 20px;
+    width: 22px;
     height: 100%;
   }
 }
