@@ -4,7 +4,6 @@ class FoodsController < ApplicationController
   before_action :move_to_root_path, only: :edit
   before_action :set_search, only: [:index, :search]
 
-
   def index
     @foods = Food.includes(:user).order('bb_date')
   end
@@ -61,5 +60,4 @@ class FoodsController < ApplicationController
     @search = Food.ransack(params[:q])
     @search_foods = @search.result(distinct: true).includes(:user).order('bb_date')
   end
-
 end

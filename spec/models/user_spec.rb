@@ -13,13 +13,13 @@ RSpec.describe User, type: :model do
     it 'nicknameが空では登録できないこと' do
       @user.nickname = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+      expect(@user.errors.full_messages).to include('ニックネームを入力してください')
     end
 
     it 'emailが空では登録できないこと' do
       @user.email = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Eメールを入力してください")
+      expect(@user.errors.full_messages).to include('Eメールを入力してください')
     end
 
     it '重複したemailが存在する場合、登録できないこと' do
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
     it 'passwordが空では登録できないこと' do
       @user.password = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワードを入力してください")
+      expect(@user.errors.full_messages).to include('パスワードを入力してください')
     end
 
     it 'passwordが6文字以上であれば、登録できること' do
@@ -65,13 +65,13 @@ RSpec.describe User, type: :model do
     it 'password_confirmationが空では、登録できないこと' do
       @user.password_confirmation = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
     end
 
     it 'passwordとpassword_confirmationが不一致では、登録できないこと' do
       @user.password_confirmation = '9876abc'
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
     end
   end
 end

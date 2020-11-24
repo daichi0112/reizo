@@ -13,19 +13,19 @@ RSpec.describe Food, type: :model do
     it 'nameが空では保存できないこと' do
       @food.name = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("食材名を入力してください")
+      expect(@food.errors.full_messages).to include('食材名を入力してください')
     end
 
     it 'numberが空では保存できないこと' do
       @food.number = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("数字を入力してください")
+      expect(@food.errors.full_messages).to include('数字を入力してください')
     end
 
     it 'numberが半角数字でない場合、保存できないこと' do
       @food.number = '１２３４'
       @food.valid?
-      expect(@food.errors.full_messages).to include("数字は半角数字で入力してください")
+      expect(@food.errors.full_messages).to include('数字は半角数字で入力してください')
     end
 
     it 'numberが10000より上の場合、保存できないこと' do
@@ -37,7 +37,7 @@ RSpec.describe Food, type: :model do
     it 'unit_idが空では保存できないこと' do
       @food.unit_id = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("単位を入力してください")
+      expect(@food.errors.full_messages).to include('単位を入力してください')
     end
 
     it 'unit_idが1の場合、保存できないこと' do
@@ -49,13 +49,13 @@ RSpec.describe Food, type: :model do
     it 'bb_dateが空では保存できないこと' do
       @food.bb_date = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("賞味期限を入力してください")
+      expect(@food.errors.full_messages).to include('賞味期限を入力してください')
     end
 
     it 'category_idが空では保存できないこと' do
       @food.category_id = nil
       @food.valid?
-      expect(@food.errors.full_messages).to include("カテゴリーを入力してください")
+      expect(@food.errors.full_messages).to include('カテゴリーを入力してください')
     end
 
     it 'category_idが1の場合、保存できないこと' do
