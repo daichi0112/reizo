@@ -23,7 +23,7 @@
       <%= search_form_for @search, url: search_foods_path, class: 'search-form' do |f| %>
         <%= f.text_field :name_cont, placeholder: "食材を探す", class: 'input-box'%>
         <%= f.collection_select(:category_id_eq, Category.where.not(id: 1), :id, :name, include_blank: 'カテゴリー指定なし', class:"search-category") %>
-        <%= f.date_field :bb_date_gteq, class: 'search-bb-date' %>
+        <%= f.date_field :bb_date_gteq, :value => Time.now.strftime('%Y-%m-%d'), class: 'search-bb-date' %>
         <button class="search-button">
           <%= image_tag "search.png", class:"search-icon" %>
         </button>

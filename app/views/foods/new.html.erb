@@ -51,7 +51,7 @@
               <span class='required'>必須</span>
             </div>
             <div class='bb-date-form'>
-              <%= f.date_field :bb_date, class: 'select-bb-date' %>
+              <%= f.date_field :bb_date, :value => Time.now.strftime('%Y-%m-%d'), class: 'select-bb-date' %>
               <%= render 'shared/error_messages', model: f.object, attribute: :bb_date %>
             </div>
           </div>
