@@ -48,7 +48,8 @@ footer p {
 /* タブレット表示時 */
 @media (max-width: 1024px) {
   .top-page-footer {
-    height: 200px;
+    /* height: 200px; */
+    height: 186px;
   }
 }
 
