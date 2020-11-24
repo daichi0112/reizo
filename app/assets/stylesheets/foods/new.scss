@@ -31,7 +31,6 @@
   width: 50vw;
   margin: 5vh 0;
   padding: 10px;
-  height: 100%;
   border-radius: 5px;
 }
 
@@ -89,11 +88,11 @@
 }
 
 .bb-date-form {
-  height: 32px;
   width: 210px;
 }
 
 .select-bb-date {
+  height: 32px;
   width: 100%;
 }
 
@@ -121,4 +120,139 @@
   text-align: center;
   border: none;
   border-radius: 3px;
+}
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .new-contents {
+    height: 1180px;
+  }
+
+  .new-header {
+    margin-top: 2vh;
+  }
+
+  .new-top-btn {
+    font-size: 45px;
+  }
+
+  .new-main {
+    width: 70vw;
+    margin: 3vh 0;
+  }
+
+  .new-title {
+    width: 25vw;
+    font-size: 25px;
+    margin: 50px auto;
+  }
+
+  .form-group {
+    margin-bottom: 35px;
+  }
+
+  .text-title {
+    font-size: 17px;
+  }
+
+  .required {
+    font-size: 14px;
+  }
+
+  .new-text {
+    width: 220px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .select-unit {
+    height: 42px;
+    font-size: 17px;
+  }
+  
+  .select-box {
+    height: 42px;
+    width: 220px;
+    font-size: 17px;
+  }
+  
+  .bb-date-form {
+    width: 220px;
+  }
+
+  .select-bb-date {
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .submit-form {
+    margin-top: 50px;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .new-contents {
+    height: 760px;
+  }
+
+  .new-top-btn {
+    font-size: 20px;
+  }
+
+  .new-main {
+    width: 80vw;
+    margin: 5vh 0;
+  }
+
+  .new-title {
+    width: 30vw;
+    font-size: 15px;
+    margin: 35px auto;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .text-title {
+    font-size: 10px;
+  }
+
+  .required {
+    font-size: 6px;
+  }
+
+  .new-text {
+    height: 22px;
+    font-size: 6px;
+  }
+
+  .select-unit {
+    height: 22px;
+    font-size: 6px;
+  }
+  
+  .select-box {
+    height: 22px;
+    font-size: 6px;
+  }
+  
+  .select-bb-date {
+    height: 22px;
+    font-size: 6px;
+  }
+
+  .submit-form {
+    margin-top: 40px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    margin: 15px 0;
+  }
+  
+  .back-btn {
+    font-size: 10px;
+  }
 }

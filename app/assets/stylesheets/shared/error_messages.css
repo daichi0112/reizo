@@ -5,3 +5,17 @@
 .error-message {
   color: red;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .error-message {
+    font-size: 17px;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .error-message {
+    font-size: 6px;
+  }
+}
