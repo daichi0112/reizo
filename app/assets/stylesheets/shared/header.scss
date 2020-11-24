@@ -135,7 +135,7 @@
   }
 
   .right-list {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .app-description {
@@ -157,11 +157,14 @@
     width: 100%;
     height: 30px;
     font-size: 9px;
+    background-color: whitesmoke;
+    justify-content: center;
+    border: none;
   }
 
   .search-form>.input-box {
     padding-left: 0;
-    width: 18%;
+    width: 22%;
   }
 
   .search-form>.search-category {
