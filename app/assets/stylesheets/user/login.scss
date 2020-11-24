@@ -40,3 +40,45 @@
   border: none;
   border-radius: 3px;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .sessions-contents {
+    height: 1180px;
+  }
+
+  .sessions-form-group {
+    margin: 40px 0 50px;
+  }
+
+  .registrations-new-btn {
+    margin: 40px 0 15px;
+  }
+
+  .sessions-back-btn {
+    margin-top: 15px;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .sessions-contents {
+    height: 702px;
+  }
+
+  .login-flash-message {
+    font-size: 6px;
+  }
+
+  .sessions-form-group {
+    margin: 20px 0 10px;
+  }
+
+  .registrations-new-btn {
+    margin: 40px 0 15px;
+  }
+
+  .sessions-back-btn {
+    margin-top: 5px;
+  }
+}
