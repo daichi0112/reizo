@@ -105,7 +105,7 @@
   }
 
   .foods-list {
-    font-size: 7px;
+    font-size: 13px;
   }
 
   .food {
@@ -122,18 +122,20 @@
   }
 
   .new-btn {
-    width: 25px;
-    height: 25px;
-    bottom: 17px;
-    right: 18px;
-    padding: 2px;
+    width: 80px;
+    height: 50px;
+    position: absolute;
+    top: 265px;
+    right: 150px;
+    padding: 1px;
   }
 
   .new-btn-text {
-    display: none;
+    font-size: 12px;
   }
 
   .new-btn-icon {
-    height: 100%;
+    width: 60%;
+    height: 70%;
   }
 }
