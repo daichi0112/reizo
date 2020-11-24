@@ -29,3 +29,33 @@
   text-decoration: none;
   text-align: center;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .edit-contents {
+    height: 1180px;
+  }
+
+  .edit-title {
+    width: 25vw;
+    font-size: 25px;
+    margin: 25px auto;
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .edit-contents {
+    height: 760px;
+  }
+
+  .edit-title {
+    width: 30vw;
+    font-size: 15px;
+    margin: 15px auto;
+  }
+
+  .delete-btn {
+    font-size: 10px;
+  }
+}
