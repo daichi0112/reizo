@@ -3,7 +3,6 @@ function decoration () {
   const searchBtn = document.getElementById('search-btn');
   const foods = document.querySelectorAll('.food');
 
-  // mouseover
   headerBtn.forEach((header) => {
     header.addEventListener('mouseover', () => {
       header.setAttribute('style', 'background-color:#f3c52f;');
@@ -18,7 +17,6 @@ function decoration () {
     });
   });
 
-  // mouseout
   headerBtn.forEach((header) => {
     header.addEventListener('mouseout', () => {
       header.removeAttribute('style', 'background-color:#f3c52f;');
