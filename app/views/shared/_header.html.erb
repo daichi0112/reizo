@@ -4,11 +4,11 @@
       <%= link_to 'Reizo', root_path, class:"top-btn" %>
       <ul class='right-list'>
         <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, '#', class:'user-nickname' %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout' %></li>
+          <li><%= link_to current_user.nickname, '#', class:'user-nickname', id: 'header-btn' %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout', id: 'header-btn' %></li>
         <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path, class:'login' %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class:'sign-up' %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class:'login', id: 'header-btn'%></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class:'sign-up', id: 'header-btn' %></li>
         <% end %>
       </ul>
     </div>
@@ -23,8 +23,8 @@
       <%= search_form_for @search, url: search_foods_path, class: 'search-form' do |f| %>
         <%= f.text_field :name_cont, placeholder: "食材を探す", class: 'input-box'%>
         <%= f.collection_select(:category_id_eq, Category.where.not(id: 1), :id, :name, include_blank: 'カテゴリー指定なし', class: "search-category") %>
-        <%= f.date_field :bb_date_gteq, :value => Time.now.strftime('%Y-%m-%d'), class: 'search-bb-date' %>
-        <button class="search-button">
+        <%= f.date_field :bb_date_gteq, class: 'search-bb-date' %>
+        <button class="search-button" id="search-btn">
           <%= image_tag "search.png", class:"search-icon" %>
         </button>
       <% end %>
