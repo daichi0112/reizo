@@ -112,10 +112,10 @@
   ![search](https://user-images.githubusercontent.com/72439451/100338298-c1497880-301b-11eb-8b49-e45044baae6e.gif)
 
 ⑥賞味期限チェック機能  
-  - 賞味期限の7日前になると、食材が赤く表示される
-  - すでに賞味期限切れの食材も赤く表示される  
+  - 「賞味期限の7日前」になると、食材がオレンジ色に表示される
+  - 「賞味期限切れ」「賞味期限当日」の食材は赤く表示される  
 
-  ![check](https://user-images.githubusercontent.com/72439451/100522109-d37a1100-31eb-11eb-9e85-1052531714a1.gif)
+  ![bb_date](https://user-images.githubusercontent.com/72439451/100523131-67021080-31f1-11eb-9505-98869f32db7f.gif)
 
 ## 実装予定の機能
 
