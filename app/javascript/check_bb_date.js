@@ -19,7 +19,7 @@ function bb_date () {
       if (bbDate.innerHTML <= today) {
         link.setAttribute('style', 'color:red;');
       } else if (bbDate.innerHTML <= setBbDay) {
-        link.setAttribute('style', 'color:#ff9e0b;');
+        link.setAttribute('style', 'color:#fd9b08;');
       };
     });
   });
