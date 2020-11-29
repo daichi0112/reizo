@@ -13,7 +13,7 @@ function decoration () {
   });
   foods.forEach((food) => {
     food.addEventListener('mouseover', () => {
-      food.setAttribute('style', 'background-color:#7cff9dd8;');
+      food.setAttribute('style', 'background-color:#ffd900;');
     });
   });
 
@@ -27,7 +27,7 @@ function decoration () {
   });
   foods.forEach((food) => {
     food.addEventListener('mouseout', () => {
-      food.removeAttribute('style', 'background-color:#7cff9dd8;');
+      food.removeAttribute('style', 'background-color:#ffd900;');
     });
   });
 }

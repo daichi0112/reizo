@@ -11,15 +11,16 @@ function bb_date () {
   // 今日の日付
   const today = date2.getFullYear() + '-' + ("0" + (date2.getMonth() + 1)).slice(-2) + '-' + ("0" + date2.getDate()).slice(-2);
 
-  // 「賞味期限7日前」「賞味期限当日〜賞味期限切れ」の食材の表示を変更
+  // 「賞味期限当日〜賞味期限7日前」「賞味期限切れ」の食材の表示を変更
   const foodLink = document.querySelectorAll('.food-link');
   foodLink.forEach((link) => {
     const checkDate = link.querySelectorAll('.day');
     checkDate.forEach((bbDate) => {
-      if (bbDate.innerHTML <= today) {
+      if (bbDate.innerHTML < today) {
         link.setAttribute('style', 'color:red;');
+        bbDate.innerHTML = '切れ';
       } else if (bbDate.innerHTML <= setBbDay) {
-        link.setAttribute('style', 'color:#fd9b08;');
+        link.setAttribute('style', 'color:red;');
       };
     });
   });
