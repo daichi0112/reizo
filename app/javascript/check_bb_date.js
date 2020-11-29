@@ -19,6 +19,9 @@ function bb_date () {
       if (bbDate.innerHTML < today) {
         link.setAttribute('style', 'color:red;');
         bbDate.innerHTML = '切れ';
+      } else if (bbDate.innerHTML == today) {
+        link.setAttribute('style', 'color:red;');
+        bbDate.innerHTML = '本日';
       } else if (bbDate.innerHTML <= setBbDay) {
         link.setAttribute('style', 'color:red;');
       };
