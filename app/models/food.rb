@@ -10,7 +10,7 @@ class Food < ApplicationRecord
     validates :bb_date
 
     validates :number, numericality: { message: 'は半角数字で入力してください' },
-                       inclusion: { in: 0..10_000, message: 'は0〜10,000以内で入力してください' }
+                       inclusion: { in: 1..10_000, message: 'は1〜10,000以内で入力してください' }
 
     with_options numericality: { other_than: 1, message: 'を選択してください' } do
       validates :unit_id
