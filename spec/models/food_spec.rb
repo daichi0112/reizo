@@ -28,10 +28,16 @@ RSpec.describe Food, type: :model do
       expect(@food.errors.full_messages).to include('数字は半角数字で入力してください')
     end
 
+    it 'numberが0の場合、保存できないこと' do
+      @food.number = 0
+      @food.valid?
+      expect(@food.errors.full_messages).to include("数字は1〜10,000以内で入力してください")
+    end
+
     it 'numberが10000より上の場合、保存できないこと' do
       @food.number = 10_001
       @food.valid?
-      expect(@food.errors.full_messages).to include('数字は0〜10,000以内で入力してください')
+      expect(@food.errors.full_messages).to include('数字は1〜10,000以内で入力してください')
     end
 
     it 'unit_idが空では保存できないこと' do
