@@ -58,12 +58,6 @@ RSpec.describe Food, type: :model do
       expect(@food.errors.full_messages).to include('賞味期限を入力してください')
     end
 
-    it 'bb_dateが今日の日付より前の場合、保存できないこと' do
-      @food.bb_date = Date.today - 5
-      @food.valid?
-      expect(@food.errors.full_messages).to include("賞味期限は今日の日付以降のものを選択してください")
-    end
-
     it 'category_idが空では保存できないこと' do
       @food.category_id = nil
       @food.valid?

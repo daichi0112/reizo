@@ -17,11 +17,4 @@ class Food < ApplicationRecord
       validates :category_id
     end
   end
-
-  # 前日以前の日付は保存できないよう設定
-  validate :bb_date_check
-
-  def bb_date_check
-    errors.add(:bb_date, 'は今日の日付以降のものを選択してください') if bb_date.nil? || bb_date < Date.today
-  end
 end
