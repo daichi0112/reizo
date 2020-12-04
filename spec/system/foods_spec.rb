@@ -233,7 +233,7 @@ RSpec.describe "食材登録", type: :system do
       expect{
         click_on('登録する')
       }.to change {Food.count}.by(1)
-      #トップページに遷移する
+      # トップページに遷移する
       expect(current_path).to eq root_path
       #賞味期限が本日より後の場合、"入力した日付" が表示されていることを確認する
       expect(page).to have_content(@food_bb_date + 1)
@@ -246,6 +246,77 @@ RSpec.describe "食材登録", type: :system do
       basic_pass root_path
       #食材登録ページへのリンクがないことを確認する
       expect(page).to have_no_content('食材登録')
+    end
+  end
+end
+
+RSpec.describe "食材編集", type: :system do
+  before do
+    @food1 = FactoryBot.create(:food)
+    @food2 = FactoryBot.create(:food)
+  end
+
+  context '食材編集できる時' do
+    it 'ログインしたユーザーは、自分が登録した食材を編集できる' do
+      #食材1を登録したユーザーでログインする
+      log_in(@food1.user)
+      #食材1に編集ページへのリンクがあることを確認する
+      expect(page).to have_link href: edit_food_path(@food1)
+      #食材編集ページへ移動する
+      visit edit_food_path(@food1)
+      #既に登録済みの内容がフォームに入っていることを確認する
+      expect(
+        find('#food_name').value
+      ).to eq @food1.name
+      expect(
+        find('#food_number').value.to_i
+      ).to eq @food1.number
+      expect(
+        find('#food_unit_id').find('option[selected]').value.to_i
+      ).to eq @food1.unit_id
+      expect(
+        find('#food_category_id').find('option[selected]').value.to_i
+      ).to eq @food1.category_id
+      expect(
+        find('#food_bb_date').value.to_date
+      ).to eq @food1.bb_date
+      # 登録内容を編集する
+      fill_in 'food_name', with: "#{@food1.name} + 編集した食材"
+      fill_in 'food_number', with: @food1.number + 1
+      select 'パック', from: 'food_unit_id'
+      select '肉', from: 'food_category_id'
+      fill_in 'food_bb_date', with: @food1.bb_date + 1
+      #編集してもfoodモデルのカウントは変わらないことを確認する
+      expect{
+        click_on('変更する')
+      }.to change {Food.count}.by(0)
+      #トップページに遷移することを確認する
+      expect(current_path).to eq root_path
+      #トップページに先ほど編集した内容の食材が存在することを確認する(食材名)
+      expect(page).to have_content("#{@food1.name} + 編集した食材")
+      #トップページに先ほど編集した内容の食材が存在することを確認する(数量)
+      expect(page).to have_content(@food1.number + 1)
+      #トップページに先ほど編集した内容の食材が存在することを確認する(単位)
+      expect(page).to have_content('パック')
+      #トップページに先ほど編集した内容の食材が存在することを確認する(日付)
+      expect(page).to have_content(@food1.bb_date + 1)
+    end
+  end
+
+  context '食材編集できない時' do
+    it 'ログインしたユーザーは、自分以外のユーザーが登録した食材が表示されない' do
+      #食材1を登録したユーザーでログインする
+      log_in(@food1.user)
+      #食材2の情報が表示されていないことを確認する
+      expect(page).to have_no_link href: edit_food_path(@food2)
+    end
+
+    it 'ログインしていないと食材の編集画面には遷移できない' do
+      # トップページにいる
+      basic_pass root_path
+      # トップページに食材情報の表示がないことを確認する
+      expect(page).to have_no_link href: edit_food_path(@food1)
+      expect(page).to have_no_link href: edit_food_path(@food2)
     end
   end
 end
