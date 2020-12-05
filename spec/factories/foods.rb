@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :food do
-    name { 'じゃがいも' }
+    name { '豚肉' }
     number { Faker::Number.between(from: 1, to: 10_000) }
     unit_id { Faker::Number.between(from: 2, to: 9) }
     bb_date { Date.today }
