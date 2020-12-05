@@ -35,6 +35,7 @@ RSpec.configure do |config|
   config.include LogInSupport
   config.include NewFoodSupport
   config.include EditFoodSupport
+  config.include SearchFoodSupport
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

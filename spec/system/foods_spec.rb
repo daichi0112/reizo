@@ -205,14 +205,8 @@ RSpec.describe '食材削除', type: :system do
       }.to change { Food.count }.by(-1)
       # トップページへ遷移する
       expect(current_path).to eq root_path
-      # トップページに削除した食材が存在しないことを確認する(食材名)
-      expect(page).to have_no_content(@food1.name)
-      # トップページに削除した食材が存在しないことを確認する(数量)
-      expect(page).to have_no_content(@food1.number)
-      # トップページに削除した食材が存在しないことを確認する(単位)
-      expect(page).to have_no_content(@food1.unit.name)
-      # トップページに削除した食材が存在しないことを確認する(日付)
-      expect(page).to have_no_content('本日')
+      # トップページに削除した食材が存在しないことを確認する
+      expect(page).to have_no_link href: edit_food_path(@food1)
     end
   end
 
@@ -222,6 +216,102 @@ RSpec.describe '食材削除', type: :system do
       log_in(@food1.user)
       #食材2の情報が表示されていないことを確認する
       expect(page).to have_no_link href: edit_food_path(@food2)
+    end
+  end
+end
+
+RSpec.describe '食材検索', type: :system do
+  before do
+    @food1 = FactoryBot.create(:food)
+    @food2 = FactoryBot.create(:food)
+  end
+
+  context '食材検索できる時' do
+    it 'ログインしたユーザーは、自分が登録した食材を検索できる' do
+      # food1を登録したユーザーでログインする
+      log_in(@food1.user)
+      # トップページに食材1の情報があることを確認する
+      #検索バーがあることを確認する(キーワード入力欄)
+      #検索バーがあることを確認する(カテゴリー選択欄)
+      #検索バーがあることを確認する(賞味期限入力欄)
+      #検索ボタンがあることを確認する
+      #検索したい食材の情報を入力する
+      search_food(@food1)
+      #検索ボタンをクリックする
+      find('button[id="search-btn"]').click
+      #検索結果ページに遷移する
+      expect(current_path).to eq search_foods_path
+      #検索結果の表示があることを確認する
+      expect(page).to have_content('検索結果')
+      #検索した食材が表示されていることを確認する(食材名)
+      expect(page).to have_content(@food1.name)
+      #検索した食材が表示されていることを確認する(数量)
+      expect(page).to have_content(@food1.number)
+      #検索した食材が表示されていることを確認する(単位)
+      expect(page).to have_content(@food1.unit.name)
+      #検索した食材が表示されていることを確認する(日付：本日)
+      expect(page).to have_content('本日')
+      #戻るボタンがあることを確認する
+      expect(page).to have_content('戻る')
+    end
+
+    it '検索した食材が存在しない場合、"一致する食材がありません"と表示されることを確認する' do
+      # food1を登録したユーザーでログインする
+      log_in(@food1.user)
+      # トップページに食材1の情報があることを確認する
+      #検索バーがあることを確認する(キーワード入力欄)
+      #検索バーがあることを確認する(カテゴリー選択欄)
+      #検索バーがあることを確認する(賞味期限入力欄)
+      #検索ボタンがあることを確認する
+      #検索したい食材の情報を入力する
+      search_food(@food1)
+      fill_in 'q_name_cont', with: "#{@food1.name}+ 一致しない食材"
+      #検索ボタンをクリックする
+      find('button[id="search-btn"]').click
+      #検索結果ページに遷移する
+      expect(current_path).to eq search_foods_path
+      #検索結果の表示があることを確認する
+      expect(page).to have_content('検索結果')
+      #一致する商品がありませんと表示されていることを確認する
+      expect(page).to have_content('一致する食材がありません')
+      #戻るボタンがあることを確認する
+      expect(page).to have_content('戻る')
+    end
+  end
+
+  context '食材検索できない時' do
+    it 'ログインしたユーザーは、自分以外のユーザーが登録した食材が表示されない' do
+      # food1を登録したユーザーでログインする
+      log_in(@food1.user)
+      # トップページに食材1の情報があることを確認する
+      #検索バーがあることを確認する(キーワード入力欄)
+      #検索バーがあることを確認する(カテゴリー選択欄)
+      #検索バーがあることを確認する(賞味期限入力欄)
+      #検索ボタンがあることを確認する
+      #検索したい食材の情報を入力する
+      search_food(@food1)
+      #検索ボタンをクリックする
+      find('button[id="search-btn"]').click
+      #検索結果ページに遷移する
+      expect(current_path).to eq search_foods_path
+      #検索結果の表示があることを確認する
+      expect(page).to have_content('検索結果')
+      #food2の食材が表示されないことを確認する
+      expect(page).to have_no_link href: edit_food_path(@food2)
+      #戻るボタンがあることを確認する
+      expect(page).to have_content('戻る')
+    end
+
+    it 'ログインしていないユーザーは、検索ボタンを押すとログインページへ遷移する' do
+      # トップページにいる
+      basic_pass root_path
+      # トップページに食材情報の表示がないことを確認する
+      expect(page).to have_no_link href: edit_food_path(@food1)
+      expect(page).to have_no_link href: edit_food_path(@food2)
+      #検索ボタンをクリックする
+      find('button[id="search-btn"]').click
+      #ログインページへ遷移する
+      expect(current_path).to eq new_user_session_path
     end
   end
 end
