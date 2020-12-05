@@ -9,8 +9,8 @@ module NewFoodSupport
     )
     fill_in 'food_name', with: food.name
     fill_in 'food_number', with: food.number
-    find("#food_unit_id").find("option[value='#{food.unit_id}']").select_option
-    find("#food_category_id").find("option[value='#{food.category_id}']").select_option
+    find('#food_unit_id').find("option[value='#{food.unit_id}']").select_option
+    find('#food_category_id').find("option[value='#{food.category_id}']").select_option
     fill_in 'food_bb_date', with: food.bb_date
   end
 end
